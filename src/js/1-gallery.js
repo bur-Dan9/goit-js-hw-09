@@ -54,12 +54,12 @@ const gallery = document.querySelector('.gallery');
 const markup = images
   .map(
     ({ preview, original, description }) => `
-  <li class="gallery-item">
-    <a class="gallery-link" href="${original}">
-      <img class="gallery-image" src="${preview}" alt="${description}" />
-    </a>
-  </li>
-`
+      <li class="gallery-item">
+        <a class="gallery-link" href="${original}">
+          <img class="gallery-image" src="${preview}" alt="${description}" />
+        </a>
+      </li>
+    `
   )
   .join('');
 
@@ -96,6 +96,9 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+// Инициализация SimpleLightbox с настройками по ТЗ
 new SimpleLightbox('.gallery a', {
-  captions: false,
+  captions: true,
+  captionsData: 'alt',
+  captionDelay: 250,
 });
